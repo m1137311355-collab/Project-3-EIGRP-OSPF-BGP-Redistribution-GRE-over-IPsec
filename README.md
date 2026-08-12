@@ -52,31 +52,31 @@
 
 ---
 
-## IP Address Table
+
 
 ## IP Address Table
 
 | Device | Interface | IP Address | Subnet Mask | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| **EIGRP-1** | g0/0 | 10.1.0.1 | /30 | Connect to router EIGRP-2[cite: 1] |
-| | g0/1-7 | Unassigned | N/A | Shut down[cite: 1] |
-| | Tunnel253 | 192.168.100.1 | /30 | Tunnel to router BGP-1[cite: 1] |
-| **EIGRP-2** | g0/0 | 10.1.0.2 | /30 | Connect to router EIGRP-1[cite: 1] |
-| | g0/1 | 20.1.0.1 | /30 | Connect to router EIGRP-OSPF[cite: 1] |
-| | g0/2-3 | Unassigned | N/A | Shut down[cite: 1] |
-| **EIGRP-OSPF** | g0/0 | 30.1.0.1 | /30 | Connect to router OSPF-1[cite: 1] |
-| | g0/1 | 20.1.0.2 | /30 | Connect to router EIGRP-2[cite: 1] |
-| | g0/2-3 | Unassigned | N/A | Shut down[cite: 1] |
-| **OSPF-1** | g0/0 | 30.1.0.2 | /30 | Connect to router EIGRP-OSPF[cite: 1] |
-| | g0/1 | 40.1.0.1 | /30 | Connect to router OSPF-BGP[cite: 1] |
-| | g0/2-3 | Unassigned | N/A | Shut down[cite: 1] |
-| **OSPF-BGP** | g0/0 | 40.1.0.2 | /30 | Connect to router OSPF-1[cite: 1] |
-| | g0/1 | 50.1.0.1 | /30 | Connect to router BGP-1[cite: 1] |
-| | g0/2-3 | Unassigned | N/A | Shut down[cite: 1] |
-| **BGP-1** | g0/0 | Unassigned | N/A | Shut down[cite: 1] |
-| | g0/1 | 50.1.0.2 | /30 | Connect to router OSPF-BGP[cite: 1] |
-| | g0/2 | Unassigned | N/A | Shut down[cite: 1] |
-| | Tunnel253 | 192.168.100.2 | /30 | Tunnel to router EIGRP-1[cite: 1] |
+| **EIGRP-1** | g0/0 | 10.1.0.1 | /30 | Connect to router EIGRP-2|
+| | g0/1-7 | Unassigned | N/A | Shut down|
+| | Tunnel253 | 192.168.100.1 | /30 | Tunnel to router BGP-1 |
+| **EIGRP-2** | g0/0 | 10.1.0.2 | /30 | Connect to router EIGRP-1 |
+| | g0/1 | 20.1.0.1 | /30 | Connect to router EIGRP-OSPF |
+| | g0/2-3 | Unassigned | N/A | Shut down |
+| **EIGRP-OSPF** | g0/0 | 30.1.0.1 | /30 | Connect to router OSPF-1 |
+| | g0/1 | 20.1.0.2 | /30 | Connect to router EIGRP-2 |
+| | g0/2-3 | Unassigned | N/A | Shut down|
+| **OSPF-1** | g0/0 | 30.1.0.2 | /30 | Connect to router EIGRP-OSPF |
+| | g0/1 | 40.1.0.1 | /30 | Connect to router OSPF-BGP|
+| | g0/2-3 | Unassigned | N/A | Shut down |
+| **OSPF-BGP** | g0/0 | 40.1.0.2 | /30 | Connect to router OSPF-1 |
+| | g0/1 | 50.1.0.1 | /30 | Connect to router BGP-1|
+| | g0/2-3 | Unassigned | N/A | Shut down|
+| **BGP-1** | g0/0 | Unassigned | N/A | Shut down |
+| | g0/1 | 50.1.0.2 | /30 | Connect to router OSPF-BGP |
+| | g0/2 | Unassigned | N/A | Shut down|
+| | Tunnel253 | 192.168.100.2 | /30 | Tunnel to router EIGRP-1 |
 ---
 
 ## 驗證與輸出 (Verification & Output)
