@@ -83,71 +83,71 @@ D EX     30.1.0.0 [170/1034240] via 10.1.0.2, 01:51:33, GigabitEthernet0/0
       40.0.0.0/30 is subnetted, 1 subnets
 D EX     40.1.0.0 [170/1034240] via 10.1.0.2, 01:50:27, GigabitEthernet0/0
       50.0.0.0/30 is subnetted, 1 subnets
-D EX     50.1.0.0 [170/1034240] via 10.1.0.2, 01:38:07, GigabitEthernet0/0[cite: 1]
+D EX     50.1.0.0 [170/1034240] via 10.1.0.2, 01:38:07, GigabitEthernet0/0
       192.168.100.0/24 is variably subnetted, 2 subnets, 2 masks
-C        192.168.100.0/30 is directly connected, Tunnel253[cite: 1]
-L        192.168.100.1/32 is directly connected, Tunnel253[cite: 1]
+C        192.168.100.0/30 is directly connected, Tunnel253
+L        192.168.100.1/32 is directly connected, Tunnel253
 
 EIGRP-1#traceroute 50.1.0.2
 Type escape sequence to abort.
 Tracing the route to 50.1.0.2
 VRF info: (vrf in name/id, vrf out name/id)
-  1 10.1.0.2 3 msec 2 msec 1 msec[cite: 1]
-  2 20.1.0.2 4 msec 4 msec 4 msec[cite: 1]
-  3 30.1.0.2 4 msec 4 msec 4 msec[cite: 1]
-  4 40.1.0.2 5 msec 5 msec 4 msec[cite: 1]
-  5 50.1.0.2 6 msec 5 msec 5 msec[cite: 1]
+  1 10.1.0.2 3 msec 2 msec 1 msec
+  2 20.1.0.2 4 msec 4 msec 4 msec
+  3 30.1.0.2 4 msec 4 msec 4 msec
+  4 40.1.0.2 5 msec 5 msec 4 msec
+  5 50.1.0.2 6 msec 5 msec 5 msec
 EIGRP-1#traceroute 50.1.0.2
 Type escape sequence to abort.
 Tracing the route to 50.1.0.2
 VRF info: (vrf in name/id, vrf out name/id)
-  1 10.1.0.2 3 msec 2 msec 1 msec[cite: 1]
-  2 20.1.0.2 4 msec 4 msec 4 msec[cite: 1]
-  3 30.1.0.2 4 msec 4 msec 4 msec[cite: 1]
-  4 40.1.0.2 5 msec 5 msec 4 msec[cite: 1]
-  5 50.1.0.2 6 msec 5 msec 5 msec[cite: 1]
+  1 10.1.0.2 3 msec 2 msec 1 msec
+  2 20.1.0.2 4 msec 4 msec 4 msec
+  3 30.1.0.2 4 msec 4 msec 4 msec
+  4 40.1.0.2 5 msec 5 msec 4 msec
+  5 50.1.0.2 6 msec 5 msec 5 msec
 
 4. Tunnel Ping (GRE over IPsec)
 BGP-1#ping 192.168.100.1
 Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 192.168.100.1, timeout is 2 seconds:
-Success rate is 100 percent (5/5), round-trip min/avg/max = 9/10/14 ms[cite: 1]
+Success rate is 100 percent (5/5), round-trip min/avg/max = 9/10/14 ms
 
 5. IPsec Phase 1 & Phase 2 Verification
 BGP-1#show crypto isakmp sa
 IPv4 Crypto ISAKMP SA
 dst             src             state          conn-id status
-10.1.0.1        50.1.0.2        QM_IDLE           1001 ACTIVE[cite: 1]
+10.1.0.1        50.1.0.2        QM_IDLE           1001 ACTIVE
 
 EIGRP-1#show crypto ipsec sa
 interface: Tunnel253
-    Crypto map tag: Tunnel253-head-0, local addr 10.1.0.1[cite: 1]
+    Crypto map tag: Tunnel253-head-0, local addr 10.1.0.1
    protected vrf: (none)
-   local ident (addr/mask/prot/port): (10.1.0.1/255.255.255.255/47/0)[cite: 1]
-   remote ident (addr/mask/prot/port): (50.1.0.2/255.255.255.255/47/0)[cite: 1]
-   current_peer 50.1.0.2 port 500[cite: 1]
-     PERMIT, flags={origin is acl,}[cite: 1]
-    #pkts encaps: 10, #pkts encrypt: 10, #pkts digest: 10[cite: 1]
-    #pkts decaps: 10, #pkts decrypt: 10, #pkts verify: 10[cite: 1]
+   local ident (addr/mask/prot/port): (10.1.0.1/255.255.255.255/47/0)
+   remote ident (addr/mask/prot/port): (50.1.0.2/255.255.255.255/47/0)
+   current_peer 50.1.0.2 port 500
+     PERMIT, flags={origin is acl,}
+    #pkts encaps: 10, #pkts encrypt: 10, #pkts digest: 10
+    #pkts decaps: 10, #pkts decrypt: 10, #pkts verify: 10
 
 
 安全性補強設定 (Security Hardening)
 關閉未使用的連接埠 (Shut Down Non-Used Ports)
   EIGRP-1#show ip interface brief
   Interface                  IP-Address      OK? Method Status                  Protocol
-  GigabitEthernet0/0         10.1.0.1        YES manual up                      up[cite: 1]
-  GigabitEthernet0/1         unassigned      YES NVRAM  administratively down   down[cite: 1]
-  GigabitEthernet0/2         unassigned      YES NVRAM  administratively down   down[cite: 1]
-  GigabitEthernet0/3         unassigned      YES NVRAM  administratively down   down[cite: 1]
-  GigabitEthernet0/4         unassigned      YES NVRAM  administratively down   down[cite: 1]
-  GigabitEthernet0/5         unassigned      YES NVRAM  administratively down   down[cite: 1]
-  GigabitEthernet0/6         unassigned      YES NVRAM  administratively down   down[cite: 1]
-  GigabitEthernet0/7         unassigned      YES NVRAM  administratively down   down[cite: 1]
-  NVIO                       10.1.0.1        YES unset  up                      up[cite: 1]
-  Tunnel253                  192.168.100.1   YES manual up                      up[cite: 1]
+  GigabitEthernet0/0         10.1.0.1        YES manual up                      up
+  GigabitEthernet0/1         unassigned      YES NVRAM  administratively down   down
+  GigabitEthernet0/2         unassigned      YES NVRAM  administratively down   down
+  GigabitEthernet0/3         unassigned      YES NVRAM  administratively down   down
+  GigabitEthernet0/4         unassigned      YES NVRAM  administratively down   down
+  GigabitEthernet0/5         unassigned      YES NVRAM  administratively down   down
+  GigabitEthernet0/6         unassigned      YES NVRAM  administratively down   down
+  GigabitEthernet0/7         unassigned      YES NVRAM  administratively down   down
+  NVIO                       10.1.0.1        YES unset  up                      up
+  Tunnel253                  192.168.100.1   YES manual up                      up
 
 遠端存取與密碼安全限制 (Only SSH & Encrypted Password)
-僅允許 SSH 連線，並對密碼進行加密保護[cite: 1]：
+僅允許 SSH 連線，並對密碼進行加密保護：
   line vty 5 15
   password 7 047828283F
   login
