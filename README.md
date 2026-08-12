@@ -183,3 +183,6 @@ interface: Tunnel253
   password 7 047828283F
   login
   transport input ssh
+
+
+完整文件：有關完整的設計說明和完整的路由器配置，請查看上傳到此儲存庫中的原始專案文件 -->
